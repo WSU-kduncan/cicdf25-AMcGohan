@@ -1,0 +1,2 @@
+Google AI Studio:
+Create an index and about html page with a css theme that has "old-internet" "vaporwave" style.
