@@ -21,6 +21,6 @@ jobs:
         password: ${{ secrets.DOCKER_TOKEN }}
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Project4/web-content/Dockerfile --tag project3-website:latest
+      run: docker build . --file Project4/web-content/Dockerfile --tag ${{ secrets.DOCKER_USERNAME }}/project3-website:latest
     - name: Push the Docker Image
       run: docker push ${{ secrets.DOCKER_USERNAME }}/project3-website:latest
