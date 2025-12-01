@@ -70,7 +70,8 @@ graph TD;
   A[Push To GitHub]-->B[docker-image.yml];
   B-->C[Grabs Major and Minor tags from Git];
   C-->D[Login to DockerHub using `DOCKER_USERNAME` and `DOCKER_TOKEN`];
-  D-->E[Builds and Pushes Image to DockerHub];
+  C-->E[Builds Docker Image];
+  E-->F[Pushes Docker Image to DockerHub];
 ```
 
 # Resources
