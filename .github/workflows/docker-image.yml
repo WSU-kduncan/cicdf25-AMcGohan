@@ -30,7 +30,10 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_TOKEN }}
     - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Project4/web-content/Dockerfile --tag ${{ secrets.DOCKER_USERNAME }}/project3-website:latest
-    - name: Push the Docker Image
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/project3-website:latest
+    - name: Build and Push Docker Image
+      uses: docker/build-push-action@v6
+      with:
+        context: .
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
