@@ -1,3 +1,20 @@
+# CI Project Overview
+
+The goal of this CI Project is to continuosly update Docker Hub with updated content of the web server automatically after a developer has pushed their changes to GitHub. 
+
+The tools used in this project include GitHub, Docker Hub, and GitHub Actions.
+    * GitHub hosts the source code for the web content to use collaboratively with other web developers.
+    * Docker Hub hosts the images for a web server running Ubuntu with httpd.
+    * GitHub Actions is the CI/CD tool that automatically builds an image with the new web content and pushes it to Docker Hub ready to be deployed.
+
+```mermaid
+graph TD;
+  A[User pushes commit to GitHub]-->|docker-image.yml| B[Grabs Major and Minor tags from Git];
+  B-->C[Login to DockerHub using `DOCKER_USERNAME` and `DOCKER_TOKEN`];
+  C-->D[Builds Docker Image];
+  D-->E[Pushes Docker Image to DockerHub];
+```
+
 # Dockerfile & Building Images
 
 ## Whats Contained In This Repository?
@@ -62,16 +79,6 @@ To test if the workflow works, simply use `git add`, `git commit`, and `git push
 You can verify that the image in DockerHub works simply by pulling the image off Docker using `docker pull DOCKER_USERNAME/REPONAME` and testing the image.
 
 Link to my DockerHub repository is [here](https://hub.docker.com/repository/docker/amcgohan/project3-website/general).
-
-# CI/CD Diagram
-
-```mermaid
-graph TD;
-  A[User pushes commit to GitHub]-->|docker-image.yml| B[Grabs Major and Minor tags from Git];
-  B-->C[Login to DockerHub using `DOCKER_USERNAME` and `DOCKER_TOKEN`];
-  C-->D[Builds Docker Image];
-  D-->E[Pushes Docker Image to DockerHub];
-```
 
 # Resources
 
