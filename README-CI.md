@@ -53,8 +53,21 @@ After following these steps, you can go on to create a new workflow for GitHub A
 
 Whenever a certain event happens when pushing a commit to GitHub, GitHub Actions has a trigger effect depending on the event. For instance, whenever a commit is pushed in this repository, a new image is pushed immediately to DockerHub. This is created by workflow steps, and for this repository it can be seen [here](.github/workflows/docker-image.yml).
 
+When a trigger happens, the workflow steps are activated. Each `job` in the workflow file are the steps that are taken. For instance, `Login to DockerHub` uses the `DOCKER_USERNAME` and `DOCKER_TOKEN` variables to intialize building and pushing to the Docker repository. 
+
+To use the YAML file in a different repository, the values that need to be changed will be the repository in the `images` field under the `Docker meta` job and the path to the Dockerfile under `Build and Push Docker Image`.
+
+To test if the workflow works, simply use `git add`, `git commit`, and `git push` to trigger the workflow. If the YAML file fails, GitHub will make the error visible with a red cross in the Actions page. 
+
+You can verify that the image in DockerHub works simply by pulling the image off Docker using `docker pull DOCKER_USERNAME/REPONAME` and testing the image.
+
+Link to my DockerHub repository is [here](https://hub.docker.com/repository/docker/amcgohan/project3-website/general).
 # Resources
 
 https://docs.docker.com/reference/cli/docker/buildx/build/
 
 https://docs.docker.com/reference/cli/docker/container/run/
+
+https://docs.docker.com/security/access-tokens/
+
+https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets
