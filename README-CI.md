@@ -66,7 +66,7 @@ Link to my DockerHub repository is [here](https://hub.docker.com/repository/dock
 # CI/CD Diagram
 
 ```mermaid
-graph CICD
+graph TD;
   A-->B;
   B-->C;
   C-->D;
@@ -82,4 +82,5 @@ https://docs.docker.com/reference/cli/docker/container/run/
 https://docs.docker.com/security/access-tokens/
 
 https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets
+
 
