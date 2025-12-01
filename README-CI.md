@@ -80,15 +80,39 @@ You can verify that the image in DockerHub works simply by pulling the image off
 
 Link to my DockerHub repository is [here](https://hub.docker.com/repository/docker/amcgohan/project3-website/general).
 
+# Version Tags
+
+## Generating Tags
+
+* To generate a tag to a recent commit, run the following command:
+
+`git tag -a v*.*.*`, where `*` is the version number following [version semantics](https://semver.org/).
+
+* To view all tags, run the following command:
+
+`git tag`
+
+This will print all tags that were created in your repository.
+
+* To push a tag in a `git` repository, run the following command:
+
+`git push origin v*.*.*`, where `*` is the version you would like to push.
+
+
+
 # Resources
 
 https://docs.docker.com/reference/cli/docker/buildx/build/
+Demonstrates how `docker build` was used for this project 
 
-https://docs.docker.com/reference/cli/docker/container/run/
+https://docs.docker.com/reference/cli/docker/container/run/.
+Demonstrates how `docker run` was used for this project
 
 https://docs.docker.com/security/access-tokens/
+Used to discover how to make Personal Access Tokens
 
 https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets
+Used to learn how to make secrets and use secrets as variables
 
-
-
+https://docs.docker.com/build/ci/github-actions/manage-tags-labels/
+Used to add tags from Git to Docker Hub images.
