@@ -67,11 +67,10 @@ Link to my DockerHub repository is [here](https://hub.docker.com/repository/dock
 
 ```mermaid
 graph TD;
-  A[Push To GitHub]-->B[docker-image.yml];
-  B-->C[Grabs Major and Minor tags from Git];
-  C-->D[Login to DockerHub using `DOCKER_USERNAME` and `DOCKER_TOKEN`];
-  D-->E[Builds Docker Image];
-  E-->F[Pushes Docker Image to DockerHub];
+  A[User pushes commit to GitHub]-->|docker-image.yml| B[Grabs Major and Minor tags from Git];
+  B-->C[Login to DockerHub using `DOCKER_USERNAME` and `DOCKER_TOKEN`];
+  C-->D[Builds Docker Image];
+  D-->E[Pushes Docker Image to DockerHub];
 ```
 
 # Resources
