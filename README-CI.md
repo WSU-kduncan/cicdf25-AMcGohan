@@ -74,6 +74,8 @@ When a trigger happens, the workflow steps are activated. Each `job` in the work
 
 To use the YAML file in a different repository, the values that need to be changed will be the repository in the `images` field under the `Docker meta` job and the path to the Dockerfile under `Build and Push Docker Image`.
 
+## Testing & Validating
+
 To test if the workflow works, simply use `git add`, `git commit`, and `git push` to trigger the workflow. If the YAML file fails, GitHub will make the error visible with a red cross in the Actions page. 
 
 You can verify that the image in DockerHub works simply by pulling the image off Docker using `docker pull DOCKER_USERNAME/REPONAME` and testing the image.
@@ -98,7 +100,26 @@ This will print all tags that were created in your repository.
 
 `git push origin v*.*.*`, where `*` is the version you would like to push.
 
+## Semantic Versioning Container Images with GitHub Actions
 
+When a commit is pushed to GitHub, the workflow will trigger the workflow steps.
+
+The workflow steps does the following:
+* Creates an image tagged with the major version
+* Creates an image tagged with the major and minor version
+* Creates an image tagged with the latest version.
+
+To use the YAML file in a different repository, the values that need to be changed will be the repository in the `images` field under the `Docker meta` job and the path to the Dockerfile under `Build and Push Docker Image`.
+
+Workflow file can be viewed [here](.github/workflows/docker-image.yml).
+
+## Testing & Validating
+
+To test if the workflow worked, check Docker Hub and see if there are three tags made for the image (Major, Major and Minor, and `latest`).
+
+You can verify that the image in DockerHub works simply by pulling the image off Docker using `docker pull DOCKER_USERNAME/REPONAME` and testing the image.
+
+Link to my DockerHub repository is [here](https://hub.docker.com/repository/docker/amcgohan/project3-website/general).
 
 # Resources
 
