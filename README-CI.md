@@ -62,6 +62,17 @@ To test if the workflow works, simply use `git add`, `git commit`, and `git push
 You can verify that the image in DockerHub works simply by pulling the image off Docker using `docker pull DOCKER_USERNAME/REPONAME` and testing the image.
 
 Link to my DockerHub repository is [here](https://hub.docker.com/repository/docker/amcgohan/project3-website/general).
+
+# CI/CD Diagram
+
+```mermaid
+graph CICD
+  A-->B;
+  B-->C;
+  C-->D;
+  D-->E;
+```
+
 # Resources
 
 https://docs.docker.com/reference/cli/docker/buildx/build/
@@ -71,3 +82,4 @@ https://docs.docker.com/reference/cli/docker/container/run/
 https://docs.docker.com/security/access-tokens/
 
 https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets
+
