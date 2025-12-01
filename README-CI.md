@@ -67,10 +67,10 @@ Link to my DockerHub repository is [here](https://hub.docker.com/repository/dock
 
 ```mermaid
 graph TD;
-  A-->B;
-  B-->C;
-  C-->D;
-  D-->E;
+  "Push To GitHub"-->"docker-image.yml";
+  "docker-image.yml-->"Grabs Major and Minor tags from Git";
+  "Grabs Major and Minor tags from Git"-->"Login to DockerHub using `DOCKER_USERNAME` and `DOCKER_TOKEN`";
+  "Login to DockerHub using `DOCKER_USERNAME` and `DOCKER_TOKEN`"-->"Builds and Pushes Image to DockerHub";
 ```
 
 # Resources
@@ -82,5 +82,6 @@ https://docs.docker.com/reference/cli/docker/container/run/
 https://docs.docker.com/security/access-tokens/
 
 https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets
+
 
 
