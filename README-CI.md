@@ -3,9 +3,7 @@
 ## Whats Contained In This Repository?
 The web content in this repository is stylized after "old-internet" and "vaporwave". Website was made using Google AI Studio using the following prompt:
 
-```
-Create an index and about html page with a css theme that has "old-internet" "vaporwave" style.
-```
+**Create an index and about html page with a css theme that has "old-internet" "vaporwave" style.**
 
 [Link to Web Content](Project4/web-content/)
 
@@ -34,3 +32,29 @@ To run a container after building an image, run the following command:
 `docker run -d -p 8080:80 --name CONTAINER_NAME IMAGE_NAME:IMAGE_TAG`
 
 where `-d` runs the container detached, `-p` opens port `8080` and `80` to connect to the web server, and `CONTAINER_NAME` is the user-defined container name. 
+
+# Setting Up GitHub Actions with DockerHub
+
+## Configuring GitHub Repository Secrets
+
+For GitHub to access DockerHub to push new images to a repostiory, a Personal Access Token is needed from DockerHub. To create one and link it to GitHub, follow these steps:
+
+1. After signing into DockerHub, click your profile in the top right corner and click `Account Settings`, then `Personal access tokens` on the left.
+
+2. Click `Generate new token` and give it a descriptor, such as "GitHub Actions for Web Content repo". Give the token an expiration date and Read & Write permissions for GitHub to push new images and delete old ones.
+
+3. Once the token has been made, copy the token and go to your GitHub repository and click `Settings`, `Secrets and Variables`, then `Actions`, and click `New repository secret`.
+
+4. In your new repository secret, name the secret `DOCKER_USERNAME` and input your DockerHub username in the "Secret" field. After adding the secret create a new one called `DOCKER_TOKEN` and paste the Docker token into the "Secret field".
+
+After following these steps, you can go on to create a new workflow for GitHub Actions.
+
+## CI with GitHub Actions
+
+Whenever a certain event happens when pushing a commit to GitHub, GitHub Actions has a trigger effect depending on the event. For instance, whenever a commit is pushed in this repository, a new image is pushed immediately to DockerHub. This is created by workflow steps, and for this repository it can be seen [here](.github/workflows/docker-image.yml).
+
+# Resources
+
+https://docs.docker.com/reference/cli/docker/buildx/build/
+
+https://docs.docker.com/reference/cli/docker/container/run/
