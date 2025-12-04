@@ -22,11 +22,11 @@ The web content in this repository is stylized after "old-internet" and "vaporwa
 
 **Create an index and about html page with a css theme that has "old-internet" "vaporwave" style.**
 
-[Link to Web Content](Project4/web-content/)
+[Link to Web Content](web-content/)
 
 The Dockerfile contained in this repo builds an Ubuntu image built on httpd that deploys a vaporwave-themed web server to the httpd web content directory.
 
-[Link to Dockerfile](Project4/web-content/Dockerfile)
+[Link to Dockerfile](web-content/Dockerfile)
 
 ## How To Build an Image
 
