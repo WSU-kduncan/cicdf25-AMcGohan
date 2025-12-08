@@ -23,3 +23,5 @@
 # Configuring a Payload Sender
 
 # Resources
+
+https://www.datacamp.com/tutorial/docker-stop-all-containers
