@@ -49,5 +49,5 @@ jobs:
     steps:
       - name: Send webhook
         env:
-            WEB_URL: ${{ secrets.WEBHOOK_URL }} 
-        run: curl -X POST "$WEB_URL"
+            WEB_URL: ${{ secrets.WEBHOOK_URL }}
+        run: curl -X POST "http://184.73.154.239:9000/hooks/redeploy-webhook?token=secret_tunnel"
