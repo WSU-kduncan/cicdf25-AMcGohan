@@ -1,0 +1,10 @@
+[Unit]
+Description=Webhook Listener for Auto Deployment
+After=network.target
+
+[Service]
+ExecStart=webhook -hooks /home/ec2-user/hooks.yaml
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
