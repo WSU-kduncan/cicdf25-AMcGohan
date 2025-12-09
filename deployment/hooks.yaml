@@ -9,3 +9,9 @@
         parameter:
           source: url
           name: token
+      match:
+        parameter:
+          source: header
+          name: X-GitHub-Event
+        type: value
+        value: GET
