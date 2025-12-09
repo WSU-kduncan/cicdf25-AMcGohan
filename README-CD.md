@@ -64,6 +64,23 @@ To test if the script works, input the public IP address of the host machine wit
 
 ## Configuring a `webhook` Listener
 
+To install adnanh's webhook, follow these steps:
+1. Install `go` by running `sudo yum install go`
+2. Fix the path environment of `go` by running `go env -w GO111MODULE=auto`
+3. Install adnanh's webhook by running `go install github.com/adnanh/webhook@latest`
+4. After installing, `webhook` should be in the `go` directory in the user's home folder. To verify installation, run `./go/bin/webhook`.
+
+The `webhook` definition file consists of an id with a command to execute (ex. `./deploy.sh`). The command is triggered by a HTTPS request but it has to be checked against some rules, one being a secret rule with `secret_tunnel` as the password, and the other rule is to check if it came from either GitHub or DockerHub. 
+
+To verify if the definition file was loaded by `webhook`, run the definition file with the following command:
+`sudo path/to/webhook_exec -hooks /path/to/hooks.yaml -verbose`
+Connect to the `webhook` listener by using this URL:
+`http://184.73.154.239:9000/hooks/ID_FROM_DEF_HERE?token=SECRET`
+
+To view `docker` processes and when they were created/started, run `docker ps -a`
+
+[Link to Definition File](/deployment/hooks.yaml)
+
 ## Configuring a `webhook` Service
 
 # Configuring a Payload Sender
