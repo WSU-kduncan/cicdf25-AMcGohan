@@ -83,9 +83,29 @@ To view `docker` processes and when they were created/started, run `docker ps -a
 
 ## Configuring a `webhook` Service
 
+The webhook service file contains instructions on how `webhook` should be used when the instance starts. It uses `systemctl` to run in the background of the server.
+   * [Unit]
+      * `Description` is a "one-line" summary of the service.
+      * `After` is for the order that services start.
+   * [Service]
+      * `User` is the user that the daemon runs as
+      * `Group` is the group that the daemon runs as
+      * `ExecStart` is the command that the daemon executes
+      * `Restart` is the condition on when the service should restart
+   * [Install]
+      *  `WantedBy` lists the units that depend on this unit
+    
+After adding the service file to `/etc/systemd/system/`, the service needs to be enabled. To enable and start the webhook service, run the following commands:
+
+`sudo systemctl start webhook.service`
+`sudo systemctl enable webhook.service`
+
+[Link to Service File](/deployment/webhook.service)
+
 # Configuring a Payload Sender
 
 # Resources
 
 https://www.datacamp.com/tutorial/docker-stop-all-containers
 https://docs.docker.com/reference/cli/docker/container/exec/
+https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/using_systemd_unit_files_to_customize_and_optimize_your_system/assembly_working-with-systemd-unit-files_working-with-systemd
