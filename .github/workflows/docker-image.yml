@@ -48,6 +48,4 @@ jobs:
     needs: [build]
     steps:
       - name: Send webhook
-        env:
-          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL  }}
-        run: curl -X POST $WEBHOOK_URL
+        run: curl -X POST ${{ secrets.WEBHOOK_URL  }}
