@@ -3,8 +3,8 @@ Description=Webhook Listener
 After=network.target
 
 [Service]
-User=ec2-user
-Group=ec2-user
+User=root
+Group=root
 ExecStart=webhook -hooks /home/ec2-user/hooks.yaml -verbose
 Restart=on-failure
 
