@@ -1,0 +1,11 @@
+- id: redeploy-webhook
+  execute-command: "./deploy.sh"
+  command-working-directory: "/home/ec2-user/"
+  trigger-rule:
+    or:
+      match:
+        type: "value"
+        value: "secret_tunnel"
+        parameter:
+          source: url
+          name: token
