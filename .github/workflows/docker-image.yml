@@ -50,3 +50,4 @@ jobs:
       - name: Send webhook
         env:
           WEBHOOK_URL: ${{ secrets.WEBHOOK_URL  }}
+        run: curl -X POST "$WEBHOOK_URL"
