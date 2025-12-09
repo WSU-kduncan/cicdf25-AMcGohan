@@ -42,3 +42,11 @@ jobs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
+  redeploy:
+    name: Redeploy webhook call
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Send webhook
+        env:
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL  }}
